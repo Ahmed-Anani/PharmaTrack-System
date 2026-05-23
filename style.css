@@ -155,22 +155,32 @@ input:focus {
 #login_content,
 #NewAccount {
     text-align: center;
-    padding: 3rem 2rem;
-    background: rgba(255, 255, 255, 0.9);
+    padding: 2.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    width: 28rem;
+    width: 100%;
+    max-width: 26rem;
     height: auto;
-    margin: 5% auto;
+    margin: 3rem auto;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(255,255,255,0.4);
 }
 
+#login_content input,
+#NewAccount input {
+    width: 100%;
+    max-width: 100%;
+}
+
 #login_container2,
 #newAccount_container {
-    padding-top: 2rem;
+    padding: 2rem 1rem;
     min-height: 100vh;
     background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .title_home {
@@ -188,13 +198,13 @@ input:focus {
 
 #userName, #password, #firstUserName, #lastUserName, #newPassword {
     display: block;
-    margin: 1.5rem auto;
-    width: 80%;
+    margin: 1rem auto;
+    width: 100%;
 }
 
 #log_btn,
 #newAccountBtn {
-    width: 80%;
+    width: 100%;
     height: 3rem;
     font-size: 16px;
     font-weight: 700;
@@ -576,31 +586,34 @@ nav {
     -o-transform: translateY(-20px);
     box-shadow: 0 4px 8px rgba(47, 129, 237, 0.443);
 }
-    .nav_link.active{
+    .nav_link.active {
         opacity: 1;
+        pointer-events: auto;
         transform: translateY(0);
         -webkit-transform: translateY(0);
         -moz-transform: translateY(0);
         -ms-transform: translateY(0);
         -o-transform: translateY(0);
-}
+    }
    .nav_link a{
     display: block;
     margin: 2rem 0;
     pointer-events: auto;
    }
-   #log_out2{
+   #log_out2 {
         display: block;
-        width: 6rem;
-        height: 2rem;
+        width: 80%;
+        height: 2.8rem;
         border: none;
         border-radius: 8px;
-        -webkit-border-radius: 8px;
-        -moz-border-radius: 8px;
-        -ms-border-radius: 8px;
-        -o-border-radius: 8px;
-        margin: 0 auto;
-}
+        background: #ffffff;
+        color: #2F80ED;
+        font-weight: 700;
+        font-size: 15px;
+        cursor: pointer;
+        margin: 0.5rem auto;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
 #log_out{
     display: none;
 }

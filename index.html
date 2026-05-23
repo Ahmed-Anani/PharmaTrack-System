@@ -152,111 +152,119 @@
                 <button id="reset_btn">الغاء</button>
                 </div>
 
+                <div style="overflow-x: auto; width: 100%; margin-top: 1rem;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>اسم الدواء</td>
+                                <td>الاسم العلمى</td>
+                                <td>الشركة المصنعة</td>
+                                <td>النوع</td>
+                                <td>التصنيف</td>
+                                <td>السعر</td>
+                                <td>كمية المخزون</td>
+                                <td>تاريخ الانتهاء</td>
+                                <td>باركود</td>
+                                <td>تحديث</td>
+                                <td>حذف</td>
+
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="sales" class="page" style="padding: 6rem 1rem 1rem 1rem;">
+            <h2 style="text-align: center; color: #2F80ED; margin-bottom: 2rem;">عملية بيع جديدة</h2>
+            <div id="sales_form" style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto;">
+                <select id="sale_medicine" style="padding: 0.8rem; border-radius: 8px; border: 1px solid #CCC; width: 100%;">
+                    <option value="">اختر الدواء</option>
+                </select>
+                <input type="number" id="sale_quantity" placeholder="الكمية" min="1" style="width: 100%;">
+                <input type="text" id="sale_total" placeholder="الإجمالي (جنيه)" readonly style="width: 100%; background-color: #f0f0f0;">
+                <button id="confirm_sale_btn" style="width: 100%; height: 3rem; background: linear-gradient(90deg, #2F80ED 0%, #1A73E8 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 700; margin-top: 10px; box-shadow: 0 4px 15px rgba(47, 129, 237, 0.2);">تأكيد البيع</button>
+            </div>
+            <div style="overflow-x: auto; width: 100%; margin-top: 2rem;">
                 <table class="table">
                     <thead>
                         <tr>
-                            <td>اسم الدواء</td>
-                            <td>الاسم العلمى</td>
-                            <td>الشركة المصنعة</td>
-                            <td>النوع</td>
-                            <td>التصنيف</td>
-                            <td>السعر</td>
-                            <td>كمية المخزون</td>
-                            <td>تاريخ الانتهاء</td>
-                            <td>باركود</td>
-                            <td>تحديث</td>
-                            <td>حذف</td>
-
+                            <td>الدواء</td>
+                            <td>الكمية</td>
+                            <td>الإجمالي</td>
+                            <td>التاريخ</td>
                         </tr>
                     </thead>
-                    <tbody id="tbody">
-
-                    </tbody>
+                    <tbody id="sales_tbody"></tbody>
                 </table>
             </div>
         </section>
 
-        <section id="sales" class="page" style="padding: 8rem 2rem 2rem 2rem;">
-            <h2 style="text-align: center; color: #2F80ED; margin-bottom: 2rem;">عملية بيع جديدة</h2>
-            <div id="form_input" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                <select id="sale_medicine" style="padding: 0.8rem; border-radius: 8px; border: 1px solid #CCC; width: 30%; min-width: 200px;">
-                    <option value="">اختر الدواء</option>
-                </select>
-                <input type="number" id="sale_quantity" placeholder="الكمية" min="1" style="width: 20%; min-width: 150px;">
-                <input type="text" id="sale_total" placeholder="الإجمالي (جنيه)" readonly style="width: 20%; min-width: 150px; background-color: #f0f0f0;">
-            </div>
-            <div class="btns" style="margin-top: 1rem;">
-                <button id="confirm_sale_btn" style="width: 50%; height: 2.8rem; background-color: #2F80ED; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">تأكيد البيع</button>
-            </div>
-            <table class="table" style="margin-top: 2rem;">
-                <thead>
-                    <tr>
-                        <td>الدواء</td>
-                        <td>الكمية</td>
-                        <td>الإجمالي</td>
-                        <td>التاريخ</td>
-                    </tr>
-                </thead>
-                <tbody id="sales_tbody"></tbody>
-            </table>
-        </section>
-
-        <section id="inventory" class="page" style="padding: 8rem 2rem 2rem 2rem;">
+        <section id="inventory" class="page" style="padding: 6rem 1rem 1rem 1rem;">
             <h2 style="text-align: center; color: #2F80ED; margin-bottom: 2rem;">المخزون</h2>
             <div style="text-align: center; margin-bottom: 1rem;">
-                <input type="text" id="search_inventory" placeholder="بحث عن دواء..." onkeyup="searchInventory()" style="width: 50%; min-width: 250px; padding: 0.8rem; border-radius: 8px; border: 1px solid #CCC;">
+                <input type="text" id="search_inventory" placeholder="بحث عن دواء..." onkeyup="searchInventory()" style="width: 100%; max-width: 400px; padding: 0.8rem; border-radius: 8px; border: 1px solid #CCC;">
             </div>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <td>اسم الدواء</td>
-                        <td>الشركة</td>
-                        <td>السعر</td>
-                        <td>المخزون</td>
-                        <td>تاريخ الانتهاء</td>
-                        <td>الحالة</td>
-                    </tr>
-                </thead>
-                <tbody id="inventory_tbody"></tbody>
-            </table>
+            <div style="overflow-x: auto; width: 100%;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>اسم الدواء</td>
+                            <td>الشركة</td>
+                            <td>السعر</td>
+                            <td>المخزون</td>
+                            <td>تاريخ الانتهاء</td>
+                            <td>الحالة</td>
+                        </tr>
+                    </thead>
+                    <tbody id="inventory_tbody"></tbody>
+                </table>
+            </div>
         </section>
 
-        <section id="reports" class="page" style="padding: 8rem 2rem 2rem 2rem;">
+        <section id="reports" class="page" style="padding: 6rem 1rem 1rem 1rem;">
             <h2 style="text-align: center; color: #2F80ED; margin-bottom: 2rem;">التقارير التفصيلية</h2>
             
-            <div style="display: flex; justify-content: space-between; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
-                <div style="flex: 1; min-width: 300px; background-color: #EAF6FB; padding: 2rem; border-radius: 10px; border-top: 4px solid #2F80ED; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <h3 style="color: #333; margin-bottom: 1rem;">ملخص المبيعات</h3>
-                    <p style="font-size: 18px; margin-bottom: 0.5rem;">إجمالي الإيرادات: <strong id="report_total_sales" style="color: #2F80ED;">0 جنيه</strong></p>
-                    <p style="font-size: 18px;">عدد عمليات البيع: <strong id="report_total_ops" style="color: #2F80ED;">0 عملية</strong></p>
+            <div style="display: flex; justify-content: center; margin-bottom: 3rem;">
+                <div style="width: 100%; max-width: 400px; text-align: center; background: #ffffff; padding: 2rem 1rem; border-radius: 16px; border-top: 5px solid #2F80ED; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
+                    <h3 style="color: #555; font-size: 20px; font-weight: 700; margin-bottom: 1.5rem;">ملخص المبيعات</h3>
+                    <p style="font-size: 18px; margin-bottom: 1rem; font-weight: 700;">إجمالي الإيرادات: <strong id="report_total_sales" style="color: #2F80ED;">0 جنيه</strong></p>
+                    <p style="font-size: 18px; font-weight: 700;">عدد عمليات البيع: <strong id="report_total_ops" style="color: #2F80ED;">0 عملية</strong></p>
                 </div>
             </div>
 
             <h3 style="color: red; margin-bottom: 1rem;">الأدوية منتهية الصلاحية</h3>
-            <table class="table" style="margin-bottom: 3rem;">
-                <thead style="background-color: red;">
-                    <tr>
-                        <td>اسم الدواء</td>
-                        <td>تاريخ الانتهاء</td>
-                        <td>الكمية المتبقية</td>
-                        <td>إجراء</td>
-                    </tr>
-                </thead>
-                <tbody id="report_expired_tbody"></tbody>
-            </table>
+            <div style="overflow-x: auto; width: 100%; margin-bottom: 3rem;">
+                <table class="table">
+                    <thead style="background-color: red;">
+                        <tr>
+                            <td>اسم الدواء</td>
+                            <td>تاريخ الانتهاء</td>
+                            <td>الكمية المتبقية</td>
+                            <td>إجراء</td>
+                        </tr>
+                    </thead>
+                    <tbody id="report_expired_tbody"></tbody>
+                </table>
+            </div>
 
             <h3 style="color: orange; margin-bottom: 1rem;">نواقص المخزون (الكمية أقل من 10)</h3>
-            <table class="table">
-                <thead style="background-color: orange;">
-                    <tr>
-                        <td>اسم الدواء</td>
-                        <td>الشركة</td>
-                        <td>الكمية المتبقية</td>
-                        <td>سعر الوحدة</td>
-                    </tr>
-                </thead>
-                <tbody id="report_low_stock_tbody"></tbody>
-            </table>
+            <div style="overflow-x: auto; width: 100%;">
+                <table class="table">
+                    <thead style="background-color: orange;">
+                        <tr>
+                            <td>اسم الدواء</td>
+                            <td>الشركة</td>
+                            <td>الكمية المتبقية</td>
+                            <td>سعر الوحدة</td>
+                        </tr>
+                    </thead>
+                    <tbody id="report_low_stock_tbody"></tbody>
+                </table>
+            </div>
         </section>
 
     </div>
