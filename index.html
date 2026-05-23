@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaTrack</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+     <div class="login_container" id="login_container2">
+    <h1 class="title_home">PharmaTrack – فارما تراك</h1>
+     <div id="login_content">
+            <h2 class="title_login">تسجيل دخول </h2>
+            <div>
+                <input type="text" name="" id="userName" placeholder="اسم المستخدم">
+                <input type="password" name="" id="password" placeholder="كلمه المرور">
+            </div>
+            <div>
+                <button id="log_btn" onclick="login()">تسجيل الدخول</button>
+                <p><a href="#" class="forget">هل نسيت كلمه المرور؟</a></p>
+                 <p><a href="#" class="creatAccount" onclick="registerPage()">انشاء حساب جديد</a></p>
+            </div>
+        </div>
+   </div>
+
+    <div id="newAccount_container">
+         <h1 class="title_home">PharmaTrack – فارما تراك</h1>
+         <div id="NewAccount">
+            <h2 class="title_login">انشاء حساب جديد</h2>
+            <div>
+                <input type="text" name="" id="firstUserName" placeholder="الاسم الاول">
+                <input type="text" name="" id="lastUserName" placeholder="الاسم الاخير">
+                <input type="password" name="" id="newPassword" placeholder="انشاء كلمه مرور">
+            </div>
+            <div>
+                <button id="newAccountBtn" onclick="register()">انشاء حساب جديد</button>
+                <p><a href="#" class="regester" onclick="loginPage()">لديك حساب بالفعل؟ سجّل الدخول</a></p>
+            </div>
+            </div>
+    </div>
+
+    <div id="container">
+        <nav>
+             <div>
+                <button id="log_out"> تسجيل الخروج</button>
+                <i class="fa-solid fa-bars" id="menu_btn"></i>
+                <i class="fa-solid fa-x" id="close_btn"></i>
+            </div>
+            <div class="nav_link" id="menu"> 
+                <a href="#" onclick="getTopage('home_content')">الرئيسية</a>
+                <a href="#" onclick="getTopage('add_medicen')">إضافة دواء جديد</a>
+                <a href="#" onclick="getTopage('sales')">عملية بيع</a>
+                <a href="#" onclick="getTopage('inventory')">المخزون</a>
+                <a href="#" onclick="getTopage('reports')">التقارير</a>
+                <div>
+                <button id="log_out2"> تسجيل الخروج</button>
+            </div>
+            </div>
+            <div id="logo">
+                <a href="">  فارما تراك – PharmaTrack</a>
+            </div>
+            
+        </nav>
+
+        <div id="home_content" class="page">
+            <h1 id="home_title">مرحبا بكم فى نظام فارما تراك – PharmaTrack</h1>
+            <div id="cards">
+                <div id="card1" class="card1">
+                    <i class="fa-solid fa-capsules medicen_logo"></i>
+                    <h3 class="card_title">الادويه المتوفره</h3>
+                    <p id="stat_total_meds">0 دواء</p>
+                </div>
+                 <div id="card2" class="card2">
+                    <i class="fa-regular fa-calendar-xmark time_logo"></i>
+                    <h3 class="card_title">الادويه المنتهيه</h3>
+                    <p id="stat_expired_meds">0 دواء</p>
+                </div>
+                 <div id="card3" class="card3">
+                    <i class="fa-solid fa-triangle-exclamation down_logo"></i>
+                    <h3 class="card_title">المخزون المنخفض</h3>
+                    <p id="stat_low_stock">0 دواء</p>
+                </div>
+                 <div id="card4" class="card4">
+                    <i class="fa-solid fa-hand-holding-dollar many_logo"></i>
+                    <h3 class="card_title">مبيعات اليوم</h3>
+                    <p id="stat_today_sales">0 جنيه</p>
+                </div>
+            </div>
+        </div>
+        <section id="add_medicen" class="page">
+            <div>
+                <h2>اضافه دواء جديد</h2>
+                <form action="" id="form_input">
+                    <div class="input-group">
+                        <label for="medicin_name">اسم الدواء</label>
+                        <input type="text" name="" id="medicin_name" placeholder="اسم الدواء">
+                    </div>
+                    <div class="input-group">
+                        <label for="scientific_name">الاسم العلمى</label>
+                        <input type="text" name="" id="scientific_name" placeholder="الاسم العلمى">
+                    </div>
+                    <div class="input-group">
+                        <label for="manufacturing_company">الشركة المصنعة</label>
+                        <input type="text" name="" id="manufacturing_company" placeholder="الشركة المصنعة">
+                    </div>
+                    <div class="input-group">
+                        <label for="select">النوع</label>
+                        <select name="" id="select">
+                            <option value="النوع">النوع</option>
+                            <option value="شراب">شراب</option>
+                            <option value="اقراص">اقراص</option>
+                            <option value="كريم">كريم</option>
+                            <option value="حقن">حقن</option>
+                            <option value="كبسولات">كبسولات</option>
+                            <option value="مرحبا">مرهم</option>
+                            <option value="نقط">نقط</option>
+                            <option value="لزقه">لزقه طبيه</option>
+                            <option value="جل">جل</option>
+                            <option value="بودره">بودره</option>
+                            <option value="بخاخ">بخاخ</option>
+                            <option value="لبوس">لبوس</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="classification">التصنيف</label>
+                        <input type="text" name="" id="classification" placeholder="التصنيف">
+                    </div>
+                    <div class="input-group">
+                        <label for="price">السعر</label>
+                        <input type="text" name="" id="price" placeholder="السعر">
+                    </div>
+                    <div class="input-group">
+                        <label for="quantity">الكمية فى المخزون</label>
+                        <input type="text" name="" id="quantity" placeholder="الكمية فى المخزون">
+                    </div>
+                    <div class="input-group">
+                        <label for="end_date">تاريخ الانتهاء</label>
+                        <input type="date" name="" id="end_date" placeholder="تاريخ لانتهاء">
+                    </div>
+                    <div class="input-group">
+                        <label for="barcode">باركود</label>
+                        <input type="text" name="" id="barcode" placeholder="باركود">
+                    </div>
+                </form>
+                <div class="btns">
+                <button id="add_btn">اضافه</button>
+                <button id="reset_btn">الغاء</button>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>اسم الدواء</td>
+                            <td>الاسم العلمى</td>
+                            <td>الشركة المصنعة</td>
+                            <td>النوع</td>
+                            <td>التصنيف</td>
+                            <td>السعر</td>
+                            <td>كمية المخزون</td>
+                            <td>تاريخ الانتهاء</td>
+                            <td>باركود</td>
+                            <td>تحديث</td>
+                            <td>حذف</td>
+
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="sales" class="page" style="padding: 8rem 2rem 2rem 2rem;">
+            <h2 style="text-align: center; color: #2F80ED; margin-bottom: 2rem;">عملية بيع جديدة</h2>
+            <div id="form_input" style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <select id="sale_medicine" style="padding: 0.8rem; border-radius: 8px; border: 1px solid #CCC; width: 30%; min-width: 200px;">
+                    <option value="">اختر الدواء</option>
+                </select>
+                <input type="number" id="sale_quantity" placeholder="الكمية" min="1" style="width: 20%; min-width: 150px;">
+                <input type="text" id="sale_total" placeholder="الإجمالي (جنيه)" readonly style="width: 20%; min-width: 150px; background-color: #f0f0f0;">
+            </div>
+            <div class="btns" style="margin-top: 1rem;">
+                <button id="confirm_sale_btn" style="width: 50%; height: 2.8rem; background-color: #2F80ED; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">تأكيد البيع</button>
+            </div>
+            <table class="table" style="margin-top: 2rem;">
+                <thead>
+                    <tr>
+                        <td>الدواء</td>
+                        <td>الكمية</td>
+                        <td>الإجمالي</td>
+                        <td>التاريخ</td>
+                    </tr>
+                </thead>
+                <tbody id="sales_tbody"></tbody>
+            </table>
+        </section>
+
+        <section id="inventory" class="page" style="padding: 8rem 2rem 2rem 2rem;">
+            <h2 style="text-align: center; color: #2F80ED; margin-bottom: 2rem;">المخزون</h2>
+            <div style="text-align: center; margin-bottom: 1rem;">
+                <input type="text" id="search_inventory" placeholder="بحث عن دواء..." onkeyup="searchInventory()" style="width: 50%; min-width: 250px; padding: 0.8rem; border-radius: 8px; border: 1px solid #CCC;">
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>اسم الدواء</td>
+                        <td>الشركة</td>
+                        <td>السعر</td>
+                        <td>المخزون</td>
+                        <td>تاريخ الانتهاء</td>
+                        <td>الحالة</td>
+                    </tr>
+                </thead>
+                <tbody id="inventory_tbody"></tbody>
+            </table>
+        </section>
+
+        <section id="reports" class="page" style="padding: 8rem 2rem 2rem 2rem;">
+            <h2 style="text-align: center; color: #2F80ED; margin-bottom: 2rem;">التقارير التفصيلية</h2>
+            
+            <div style="display: flex; justify-content: space-between; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px; background-color: #EAF6FB; padding: 2rem; border-radius: 10px; border-top: 4px solid #2F80ED; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <h3 style="color: #333; margin-bottom: 1rem;">ملخص المبيعات</h3>
+                    <p style="font-size: 18px; margin-bottom: 0.5rem;">إجمالي الإيرادات: <strong id="report_total_sales" style="color: #2F80ED;">0 جنيه</strong></p>
+                    <p style="font-size: 18px;">عدد عمليات البيع: <strong id="report_total_ops" style="color: #2F80ED;">0 عملية</strong></p>
+                </div>
+            </div>
+
+            <h3 style="color: red; margin-bottom: 1rem;">الأدوية منتهية الصلاحية</h3>
+            <table class="table" style="margin-bottom: 3rem;">
+                <thead style="background-color: red;">
+                    <tr>
+                        <td>اسم الدواء</td>
+                        <td>تاريخ الانتهاء</td>
+                        <td>الكمية المتبقية</td>
+                        <td>إجراء</td>
+                    </tr>
+                </thead>
+                <tbody id="report_expired_tbody"></tbody>
+            </table>
+
+            <h3 style="color: orange; margin-bottom: 1rem;">نواقص المخزون (الكمية أقل من 10)</h3>
+            <table class="table">
+                <thead style="background-color: orange;">
+                    <tr>
+                        <td>اسم الدواء</td>
+                        <td>الشركة</td>
+                        <td>الكمية المتبقية</td>
+                        <td>سعر الوحدة</td>
+                    </tr>
+                </thead>
+                <tbody id="report_low_stock_tbody"></tbody>
+            </table>
+        </section>
+
+    </div>
+
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
+    
+   <!-- <div class="content">
+    <h3 class="title">حساب مؤشر كتله الجسم (BMI)</h3>
+    <div> <label for="number" class="border">الوزن</label>
+    <input type="text" name="" id="weight" placeholder="ادخل الوزن">
+    </div>
+
+    <div>
+     <label for="number">الطول</label>
+    <input type="text" name="" id="height" placeholder="ادخل الطول">
+    </div>
+    <button id="btn">احسب</button>
+    <div>
+        <h4 id="result"></h4>
+        <h3 id="bmi_cat"></h3>
+    </div>
+   </div>
+
+
+    <div class="bg_calc">
+        <div>
+        <input type="text" id="num1">
+    </div>
+    <select name="" id="operators">
+        <option value="">اختر عمليه حسابيه</option>
+        <option value="*">*</option>
+        <option value="+">+</option>
+        <option value="*">-</option>
+        <option value="/">/</option>
+
+    </select>
+    <div>
+        <input type="text" name="" id="num2">
+    </div>
+    <div>
+        <button id="calc_btn">احسب</button>
+        <p id="out"></p>
+    </div>
+    </div> -->
+
+    
+
+        
+        
+
+
+
+
+
+
+
+       <!-- <div id="inputs">
+        <input type="text" name="" id="str">
+        <input type="text" name="" id="str">
+        <input type="text" name="" id="str">
+        <input type="text" name="" id="str">
+        <input type="number" name="" id="num">
+        <input type="text" name="" id="str">
+        <input type="text" name="" id="str">
+        <input type="text" name="" id="str">
+        <input type="text" name="" id="str">
+        <input type="number" name="" id="num">
+       </div>
+       <div>
+         <button id="add_btn">add</button>
+        <button id="reset_btn">reset</button>
+       </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Number</td>
+                    <td>Updat</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table> -->
+    
+
+    <!-- <div id="dv">
+        <h2 id="we"> </h2>
+        <p id="p_a"> </p>
+        <p id="p_r"> </p>
+        <p id="sk"> </p>
+    </div> -->
+
+   
+    <script>
+
+        // function showInfo(us = "Un", ag = "Un", rt = 0 , show = "yes" , ...sk){
+        //     document.getElementById("we").innerText = `Welcome ${us}`
+        //     document.getElementById("p_a").innerText = `Age is: ${ag}`
+        //     document.getElementById("p_r").innerText = `Hour Rate: $${rt}`
+        //     if(show === "yes") {
+        //         if(sk.length > 0) {
+        //             document.getElementById("sk").innerText = `Skills: ${[sk.join(" | ")]}`
+
+        //         }else{document.getElementById("sk").innerText = `No Skills`}
+        //     }else{
+        //         document.getElementById("sk").innerText = `Skills is Hidden!`
+
+        //     }
+
+        // }
+
+        // showInfo("Ahmed",21,10, "no" , "Html5", "Css3", "Js")
+
+
+
+
+
+
+
+           
+    //     let arr = [];
+    //    function newRow(){
+    //     document.getElementById("tbody").innerHTML = "";
+    //     arr.forEach((item,index) => {
+    //         let creatTd = document.createElement("tr");
+    //     creatTd.innerHTML = `
+    //         <td>${item.name}</td>
+    //         <td>${item.number}</td>
+    //         <td><button id="updat" onclick="updatItem(${index})">Updat</button></td>
+    //         <td><button id="delete" onclick="deleteItem(${index})">Delete</button></td>
+    //     `;
+    //     document.getElementById("tbody").appendChild(creatTd)
+    //     }) };
+       
+
+    //     document.getElementById("add_btn").addEventListener("click", () => {
+    //         let str = document.getElementById("str").value;
+    //         let num = parseInt(document.getElementById("num").value);
+          
+    //         if(str !== "" && !isNaN(num)){
+    //             arr.push({name:str, number:num});
+    //             newRow()
+    //         }
+    //         document.getElementById("str").value = "";
+    //         document.getElementById("num").value = "";
+    //     })
+
+    //     function updatItem(index){
+    //         document.getElementById("str").value = arr[index].name;
+    //         document.getElementById("num").value = arr[index].number;
+    //         arr.splice(index,1);
+    //         newRow();
+    //     }
+
+    //     function deleteItem(index){
+    //         arr.splice(index,1);
+    //         newRow()
+    //     }
+
+    //     document.getElementById("reset_btn").addEventListener("click", () => {
+    //         const confirmDelete = confirm("Do you sure delete thise data")
+    //             if(confirmDelete){
+    //         document.getElementById("tbody").innerHTML = ""
+    //         arr = []
+    //     }
+    //     })
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+    //     let arr = [];
+    //     function newRow(){
+    //     document.getElementById("tbody").innerHTML = "";
+    //     arr.forEach((item, index) => {
+    //     let creatTd = document.createElement("tr")
+    //     creatTd.innerHTML = `
+    //     <td>${item.name}</td>
+    //     <td>${item.number}</td>
+    //     <td><button id="updat" onclick="updatItem(${index})">updat</button></td>
+    //     <td><button id="delete" onclick="deleteItem(${index})">delete</button></td>
+    //     `;
+    //     document.getElementById("tbody").appendChild(creatTd);
+
+    //     });
+    // }
+    //    document.getElementById("add_btn").addEventListener("click", () => {
+    //     let str = document.getElementById("str").value;
+    //     let num = parseInt(document.getElementById("num").value) ;
+    //     if (str !== '' && !isNaN(num)){
+    //     arr.push({name: str , number: num})
+    //     newRow(str,num)
+
+    //     document.getElementById("str").value = "";
+    //     document.getElementById("num").value = "";
+    //     }
+    //   });
+    // function deleteItem(index){
+    //     arr.splice(index,1)
+    //     newRow();
+    // }
+    // function updatItem(index){
+
+    //     document.getElementById("str").value = arr[index].name;
+    //     document.getElementById("num").value = arr[index].number;
+    //     arr.splice(index,1)
+    //     newRow();
+    // }
+    // document.getElementById("reset_btn").addEventListener("click",() => {
+    //     const confirmDelete = confirm("هل تريد تاكيد الحذف");
+    //     if(confirmDelete){
+    //         document.getElementById("tbody").innerHTML = "";
+    //         arr = [];
+    //     }
+       
+    // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let st = [];
+        // document.getElementById("add").addEventListener("click", function() {
+        //     let input = document.getElementById("tex").value;
+        //     document.getElementById("st").innerHTML = input ;
+        //     st.push(input);
+        //     document.getElementById("st").innerHTML = st ;
+        //     document.getElementById("tex").value = "" ;
+        // })
+
+        // document.getElementById("delete").addEventListener("click" , function() {
+        //     st.pop() ;
+        //     document.getElementById("st").innerHTML = st ;
+        // })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // let st = [];
+        // document.getElementById("add").addEventListener("click", function() {
+        //     let input = document.getElementById("tex").value
+        //     document.getElementById("st").innerText = input
+        //     st.push(input)
+        //     document.getElementById("st").innerHTML = st;
+        //     document.getElementById("tex").value = ""
+        // })
+        // document.getElementById("delete").addEventListener("click", function() {
+        //     st.pop();
+        //     document.getElementById("st").innerHTML = st;
+
+        // })
+
+
+        // document.getElementById("calc_btn").addEventListener("click" , function() {
+        //     let num1 = parseFloat(document.getElementById("num1").value)
+        //     let num2 = parseFloat(document.getElementById("num2").value)
+        //     let operators = (document.getElementById("operators").value)
+
+        //     let result = "";
+        //     if(isNaN(num1) || isNaN(num2)) {
+        //         let result2 = "ادخل قيم صحيحه" ;
+        //     }else {
+        //         switch (operators) {
+        //             case '*' : result2 = num1 * num2 ; break ;
+        //             case '+' : result2 = num1 + num2 ; break ;
+        //             case '-' : result2 = num1 - num2 ; break ;
+        //             case '/' : result2 = num2 !== 0 ? (num1 / num2).toFixed(2): "لا يمكن القسمه على صفر" ; break ;
+
+        //         }
+        //     }
+        //             document.getElementById("out").innerText = result2 ;
+        // })
+
+    //     document.getElementById("btn").addEventListener("click", function(){
+    //     let weight = parseFloat(document.getElementById("weight").value)
+    //     let height = parseFloat(document.getElementById("height").value)
+
+    //     if(weight > 0 && height > 0) {
+    //     let bmi = weight / (height * height)
+    //     document.getElementById("result").innerText = "BMI : " + bmi.toFixed(2)
+
+    //     let category = "";
+    //     if (bmi < 18.5) {
+    //         category = "نحيف"
+    //     }else if (bmi < 25) {
+    //         category = "وزنك طبيعى"
+    //     }else if (bmi < 30) {
+    //         category = "زياده فى الوزن"
+    //     }else {
+    //         category = "سمنه"
+    //     }
+    //     document.getElementById("bmi_cat").innerText = "التصنيف: " + category
+    //    }else{
+    //     document.getElementById("result").innerText = "ادخل قيم صحيحه"
+    //     document.getElementById("bmi_cat").innerText = "";
+    //    }
+    //     }
+    // )
+      
+
+    //    document.getElementById("btn").addEventListener("click", function() {
+    //     let weight = parseFloat(document.getElementById("weight").value)
+    //     let height = parseFloat(document.getElementById("height").value)
+    //     if (weight > 0 && height > 0) {
+    //         let bmi = weight / (height * height)
+    //         document.getElementById("result").innerText = "BMI : " + bmi.toFixed(2)
+
+    //         let category = ""
+    //         if (bmi < 18){
+    //             category = "نحيف"
+    //         }else if (bmi < 25) {
+    //             category = "وزن طبيعى"
+    //         }else if (bmi < 30) {
+    //             category = "زياده فى الوزن"
+    //         }else{
+    //             category = "سمنه"
+    //         }
+    //         document.getElementById("bmi_cat").innerText = "التصنيف: " + category
+    //     }else{
+    //         document.getElementById("result").innerText = "ادخل ارقام صحيحه"
+    //         document.getElementById("bmi_cat").innerText = ""
+    //     }
+    //    })
+
+
+        
+
+
+
+
+
+
+
+
+    //     for(let i = 1; i<= 20; i++) {
+    //         console.log(i)
+    //     }
+
+    //     let num = -5;
+    //     if(num > 0) {
+    //         console.log("nigativ")
+    //     }
+    //     else if(num == 0 ) {
+    //         console.log("zero")
+    //     }else{
+    //         console.log("positiv")
+    //     }
+
+    //     let sumNum = 0;
+    //     let number = 1;
+    //     while(number <= 100) {
+    //        sumNum += number;
+    //         number++ ;
+    //     }
+    //     console.log(sumNum)
+
+
+    //     let day = 7 ;
+    //     switch(day) {
+    //         case 1 : console.log("الاحد"); break;
+    //         case 2 : console.log("الاتنين"); break;
+    //         case 3 : console.log("الثلاثاء"); break;
+    //         case 4 : console.log("الاربعاء"); break;
+    //         case 5 : console.log("الخميس"); break;
+    //         case 6 : console.log("الجمعه"); break;
+    //         case 7 : console.log("السبت"); break;
+
+    //     }
+    //     let userName ="احمد";
+    //     console.log(`اهلا بك يا  ${userName}`)
+
+    //     function sum (num1,num2){
+    //         return num1 + num2
+    //     }
+    //     let result = sum(10,10);
+    //     console.log(result);
+
+    //     function isEven(num = 6){
+    //         if(num % 2 === 0){
+    //             return "الرقم زوجى"
+    //         }else{
+    //             return "الرقم فردى"
+    //         }
+    //     }
+    //     console.log(isEven(10));
+    //     console.log(isEven(7));
+
+    //     function getGrade(gread){
+    //         if(gread >= 90){
+    //             return"excellent"
+    //         }else if(gread >= 80 && gread < 89){
+    //             return "very Good"
+    //         }else if(gread >= 70 && gread < 79){
+    //             return "Good"
+    //     }else if(gread >= 60 && gread < 69){
+    //             return "acceptable"
+    //     }else{
+    //         return "Failed"
+    //     }
+    // }
+    //     console.log(getGrade(95));
+    //     console.log(getGrade(85));
+    //     console.log(getGrade(75));
+    //     console.log(getGrade(65));
+    //     console.log(getGrade(49));
+
+    //     function getMax(num1 , num2 , num3) {
+    //         if (num1 > num2) {
+    //             return num1
+    //         }else if(num2 > num3) {
+    //             return num2;
+    //         }else{
+    //             return num3 ;
+    //         }
+
+    //     }
+    //     console.log(getMax1(10, 8 , 5));
+            
+    //     function getMax1(num1 , num2, num3) {
+    //         return Math.max (20, 10 , 5)
+    //     }
+
+    //     function getAverege(num1,num2,num3) {
+            
+    //         let total = num1+num2+num3 ;
+    //         return total / 3
+    //     }
+    //     console.log(getAverege(10,20,30))
+
+
+        // let student = ["ahmed", "malak" , "mahmoud"] ;
+        // student.push("ammar")
+        // student.unshift("sabrin")
+        // console.log(student)
+
+
+        // let sumGread = 0;
+        // let averege = 0;
+        // let greads = [100, 400 , 600 , 30 , 200]
+        // let min = greads[0]
+        // for(let n =0 ; n < greads.length ; n++){
+        //     sumGread += greads[n]
+        //     }
+        // averege = sumGread / greads.length
+        // console.log(averege)
+
+
+        // let student = ["احمد" , "ابراهيم" , "ساره" , "محمود"];
+        // let name = prompt("اكتب اسم الطالب للبحث");
+        // if (student.includes(name)) {
+        //     console.log("الاسم موجود")
+        // }else{
+        //     console.log("الاسم غير موجود")
+        // }
+
+       
+        // let arr = [50 , 60 , 40 , 30];
+        // let min = arr[0];
+        // let max = arr[0];
+        // for(let r = 0; r < arr.length; r++) {
+        //     if(min > arr[r] ){
+        //         min = arr[r];
+        //     }
+        //     if(max < arr[r]){
+        //         max = arr[r]
+        //     }
+        // }
+        // console.log(max , min);
+
+        // let arr = [2, 4, 6, 9, 10];
+        // function countEvenNumber(arr) {
+        //     let evenNumber = 0;
+        //     for(let m = 0; m < arr.length; m++) {
+        //         if(arr[m] % 2 === 0) {
+        //             evenNumber ++
+        //         }
+        //     }
+        //          return evenNumber;
+
+        // }
+        // console.log(countEvenNumber(arr))
+    //    let arr = [5, 4, 8 ,3, 100];
+    //    function sumArr(arr) {
+    //     let sum = 0;
+    //     for(let n = 0; n < arr.length ; n++) {
+    //         sum += arr[n]
+    //     }
+    //     return sum;
+    //    }
+    //     console.log(sumArr(arr))
+
+
+    
+        
+    </script>
+
+
