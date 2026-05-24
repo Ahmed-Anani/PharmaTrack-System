@@ -598,7 +598,6 @@ nav {
    .nav_link a{
     display: block;
     margin: 2rem 0;
-    pointer-events: auto;
    }
    #log_out2 {
         display: block;
